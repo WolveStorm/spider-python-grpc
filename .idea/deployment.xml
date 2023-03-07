@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" autoUpload="Always" serverName="root@0.0.0.0:8023 password (2)" remoteFilesAllowedToDisappearOnAutoupload="false">
+    <serverData>
+      <paths name="game_srv">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/tmp/x6WeXrMax2" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="root@0.0.0.0:8023 password (4)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/tmp/pycharm_project_338" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myAutoUpload" value="ALWAYS" />
+  </component>
+</project>

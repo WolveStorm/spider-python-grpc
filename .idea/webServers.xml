@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="1351dd3d-ba80-4fc1-b170-9c68fff80a4e" name="game_srv">
+        <fileTransfer accessType="SFTP" host="0.0.0.0" port="8023" sshConfigId="5f4d9f51-b2f4-42db-9216-90890a465698" sshConfig="root@0.0.0.0:8023 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
