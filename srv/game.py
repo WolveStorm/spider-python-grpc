@@ -33,14 +33,10 @@ class GameServicer(game_pb2_grpc.GameServicer):
                 request.page = 1
             if request.pageSize == 0:
                 request.pageSize = 10
-            if exist_key(kv_game_list) == 1:
-                logger.debug("search in redis")
-                result = find_game_list_redis(request.page, request.pageSize, request.keyword)
-                if result is not None:
-                    return game_pb2.GameListResponse(total=result["total"], list=result["list"])
-            else:
-                logger.debug("search nothing in redis")
-                game_list_to_redis()
+            result = find_game_list_redis(request.page, request.pageSize, request.keyword)
+            if result is not None:
+                return game_pb2.GameListResponse(total=result["total"], list=result["list"])
+            game_list_to_redis()
             offset = (request.page - 1) * request.pageSize
             results = collection.find()
             if request.keyword != "":
@@ -61,13 +57,10 @@ class GameServicer(game_pb2_grpc.GameServicer):
 
     def GameDetail(self, request: game_pb2.GameDetailRequest, context):
         try:
-            if exist_key(kv_game_detail + request.gameName):
-                logger.debug("search in redis")
-                result = find_game_detail_redis(request.gameName)
-                if result is not None:
-                    return result
-            else:
-                game_detail_to_redis(request.gameName)
+            result = find_game_detail_redis(request.gameName)
+            if result is not None:
+                return result
+            game_detail_to_redis(request.gameName)
             result = collection.find_one({'name': request.gameName})
             if result is None:
                 context.set_code(grpc.StatusCode.INTERNAL)
